@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Host</name>
+    </assembly>
+    <members>
+        <member name="M:Host.Controllers.TemplateBase.GenerateString">
+            <summary>Executes the template and returns the output as a string.</summary>
+            <returns>The template output.</returns>
+        </member>
+        <member name="M:Host.Controllers.TemplateBase.Generate(System.IO.TextWriter)">
+            <summary>Executes the template, writing to the provided text writer.</summary>
+            <param name="writer">The TextWriter to which to write the template output.</param>
+        </member>
+        <member name="M:Host.Controllers.TemplateBase.WriteLiteral(System.String)">
+            <summary>Writes a literal value to the template output without HTML escaping it.</summary>
+            <param name="value">The literal value.</param>
+        </member>
+        <member name="M:Host.Controllers.TemplateBase.WriteLiteralTo(System.IO.TextWriter,System.String)">
+            <summary>Writes a literal value to the TextWriter without HTML escaping it.</summary>
+            <param name="writer">The TextWriter to which to write the literal.</param>
+            <param name="value">The literal value.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Host.Controllers.TemplateBase.Write(System.Object)" -->
+        <!-- Badly formed XML comment ignored for member "M:Host.Controllers.TemplateBase.WriteTo(System.IO.TextWriter,System.Object)" -->
+        <member name="M:Host.Controllers.TemplateBase.WriteAttribute(System.String,System.String,System.String,System.Tuple{System.String,System.Object,System.Boolean}[])">
+            <summary>
+            Conditionally writes an attribute to the template output.
+            </summary>
+            <param name="name">The name of the attribute.</param>
+            <param name="prefix">The prefix of the attribute.</param>
+            <param name="suffix">The suffix of the attribute.</param>
+            <param name="values">Attribute values, each specifying a prefix, value and whether it's a literal.</param>
+        </member>
+        <member name="M:Host.Controllers.TemplateBase.WriteAttributeTo(System.IO.TextWriter,System.String,System.String,System.String,System.Tuple{System.String,System.Object,System.Boolean}[])">
+             <summary>
+             Conditionally writes an attribute to a TextWriter.
+             </summary>
+             <param name="writer">The TextWriter to which to write the attribute.</param>
+             <param name="name">The name of the attribute.</param>
+             <param name="prefix">The prefix of the attribute.</param>
+             <param name="suffix">The suffix of the attribute.</param>
+             <param name="values">Attribute values, each specifying a prefix, value and whether it's a literal.</param>
+            <remarks>Used by Razor helpers to write attributes.</remarks>
+        </member>
+        <member name="M:Host.Controllers.TemplateBase.Execute">
+            <summary>Executes the template, writing output to the Write and WriteLiteral methods.</summary>.
+            <remarks>Not intended to be called directly. Call the Generate method instead.</remarks>
+        </member>
+    </members>
+</doc>
