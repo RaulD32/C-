@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApplicationCore.DTOs;
 using ApplicationCore.Interfaces;
+using ApplicationCore.Wrappers;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,6 +49,12 @@ namespace Host.Controllers
 
             return BadRequest(result);
 
+        }
+        [HttpPost("update-estudiante")]
+        public async Task<ActionResult<Response<int>>> UpdateEstudiante([FromBody] EstudianteDto request)
+        {
+            var result= await _service.UpdateEstudiante(request);
+            return Ok(result);
         }
     }
 }

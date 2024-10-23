@@ -1,4 +1,5 @@
 ﻿using System;
+using ApplicationCore.DTOs;
 using ApplicationCore.Interfaces;
 using ApplicationCore.Wrappers;
 using Domain.Entities;
@@ -93,6 +94,22 @@ namespace Infraestructure.Services
                 response.Message = $"Error al eliminar el estudiante: {ex.Message}";
                 return response;
             }
+        }
+
+        public async Task<Response<int>> UpdateEstudiante(EstudianteDto request)
+        {
+            var estudianteExistente = await _context.estudiantes.FindAsync(request.id);
+            if (estudianteExistente == null)
+            {
+                return new Response<int>(0,"jugador no encontrado");
+            }
+
+            estudianteExistente.nombre = request.nombre;
+            estudianteExistente.edad=request.edad;
+            estudianteExistente.correo=request.correo;
+            await _context.SaveChangesAsync();
+
+            return new Response<int>(estudianteExistente.id, "estudiante actualizado");
         }
 
 
