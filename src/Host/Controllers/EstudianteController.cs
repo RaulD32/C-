@@ -31,11 +31,22 @@ namespace Host.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostEstudiante([FromQuery] Estudiante estudiante)
+        public async Task<IActionResult> PostEstudiante([FromBody] Estudiante estudiante)
         {
+            // Asegúrate de que el objeto estudiante no sea null
+            if (estudiante == null)
+            {
+                return BadRequest("Estudiante no válido.");
+            }
+
             var results = await _service.PostEstudiante(estudiante);
 
-            return Ok(results);
+            if (results == null)
+            {
+                return StatusCode(500, "Error al guardar el estudiante."); // Maneja el caso en que no se pudo guardar
+            }
+
+            return Ok(results); // Retorna el estudiante creado
         }
 
         [HttpDelete("{id}")]
