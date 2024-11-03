@@ -4,6 +4,7 @@ using ApplicationCore.Interfaces;
 using ApplicationCore.Wrappers;
 using Domain.Entities;
 using Infraestructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructure.Services
 {
@@ -112,7 +113,33 @@ namespace Infraestructure.Services
             return new Response<int>(estudianteExistente.id, "estudiante actualizado");
         }
 
+        public async Task<byte[]> GetPDF()
+        {
+            DevExpress.DataAccess.ObjectBinding.ObjectDataSource source = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource();
 
+            var report = new ApplicationCore.PDF.EstudiantesPDF();
+            var estudiantes = await (from e in _context.estudiantes
+                                     select new EstudianteDto
+                                     {
+                                         id= e.id,
+                                         edad =e.edad,
+                                         nombre = e.nombre,
+                                         correo = e.correo
+                                     }).ToListAsync();
+            EstudiantesPDFDTO reportePdf = new EstudiantesPDFDTO();
+            reportePdf.Fecha = DateTime.Now.ToString("dd/mm/yyyy");
+            reportePdf.Hora = DateTime.Now.ToString("hh:mm");
+            reportePdf.estudiantes = estudiantes;
+
+            source.DataSource = reportePdf;
+            report.DataSource = source;
+            using (var memory = new MemoryStream())
+            {
+                await report.ExportToPdfAsync(memory);
+                memory.Position = 0;
+                return memory.ToArray();
+            }
+        }
 
     }
 }

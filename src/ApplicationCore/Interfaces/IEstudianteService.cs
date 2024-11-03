@@ -12,6 +12,8 @@ namespace ApplicationCore.Interfaces
         Task<Response<object>> DeleteEstudiante(int id);
 
         Task<Response<int>> UpdateEstudiante(EstudianteDto estudianteDto);
+        Task<byte[]> GetPDF();
+
     }
 }
 
