@@ -3,28 +3,28 @@ using Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Habilitar CORS
+// Configuración de servicios
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        builder => builder
-            .AllowAnyOrigin()   // Permite cualquier origen
-            .AllowAnyMethod()   // Permite cualquier método (GET, POST, etc.)
-            .AllowAnyHeader()); // Permite cualquier encabezado
+    options.AddPolicy("AllowAll", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 });
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllers();
 builder.Services.AddApplicationCore();
-builder.Services.AddInfraestructure(builder.Configuration);
+builder.Services.AddInfraestructure(builder.Configuration); // Asegúrate de llamar a este método
 
 var app = builder.Build();
 
-// Inicializar base de datos (según tu configuración)
+// Inicializar base de datos
 await app.Services.InitializeDatabasesAsync();
 
-// Aplica la política de CORS antes de los middlewares personalizados
 app.UseCors("AllowAll");
-
+app.UseRouting();
+app.MapControllers();
 app.UseInfraestructure();
+
 app.Run();

@@ -104,7 +104,7 @@
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.table1});
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("correo", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            new DevExpress.XtraReports.UI.GroupField("nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
             this.GroupHeader1.HeightF = 27F;
             this.GroupHeader1.Level = 1;
@@ -115,7 +115,7 @@
             this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.table2});
             this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("edad", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            new DevExpress.XtraReports.UI.GroupField("correo", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
             this.GroupHeader2.HeightF = 27F;
             this.GroupHeader2.Level = 2;
@@ -126,7 +126,7 @@
             this.GroupHeader3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.table3});
             this.GroupHeader3.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("nombre", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            new DevExpress.XtraReports.UI.GroupField("edad", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader3.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
             this.GroupHeader3.HeightF = 27F;
             this.GroupHeader3.Level = 3;
@@ -179,7 +179,7 @@
             this.label1.Name = "label1";
             this.label1.SizeF = new System.Drawing.SizeF(650F, 24.19433F);
             this.label1.StyleName = "Title";
-            this.label1.Text = "Reporte de Estudiantes UT";
+            this.label1.Text = "reporte";
             // 
             // table1
             // 
@@ -201,16 +201,16 @@
             // 
             this.tableCell1.Name = "tableCell1";
             this.tableCell1.StyleName = "GroupCaption1";
-            this.tableCell1.Text = "CORREO";
-            this.tableCell1.Weight = 0.089681208683894231D;
+            this.tableCell1.Text = "NOMBRE";
+            this.tableCell1.Weight = 965427.3125D;
             // 
             // tableCell2
             // 
             this.tableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[correo]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nombre]")});
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "GroupData1";
-            this.tableCell2.Weight = 0.91031879131610582D;
+            this.tableCell2.Weight = 9684172D;
             // 
             // table2
             // 
@@ -232,16 +232,16 @@
             // 
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "GroupCaption1";
-            this.tableCell3.Text = "EDAD";
-            this.tableCell3.Weight = 0.062257649348332333D;
+            this.tableCell3.Text = "CORREO";
+            this.tableCell3.Weight = 0.089681208683894231D;
             // 
             // tableCell4
             // 
             this.tableCell4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[edad]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[correo]")});
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "GroupData1";
-            this.tableCell4.Weight = 0.9377423565204327D;
+            this.tableCell4.Weight = 0.91031879131610582D;
             // 
             // table3
             // 
@@ -263,16 +263,16 @@
             // 
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "GroupCaption1";
-            this.tableCell5.Text = "NOMBRE";
-            this.tableCell5.Weight = 965427.3125D;
+            this.tableCell5.Text = "EDAD";
+            this.tableCell5.Weight = 0.062257649348332333D;
             // 
             // tableCell6
             // 
             this.tableCell6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[nombre]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[edad]")});
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "GroupData1";
-            this.tableCell6.Weight = 9684172D;
+            this.tableCell6.Weight = 0.9377423565204327D;
             // 
             // table4
             // 
@@ -348,13 +348,13 @@
             this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.Title.BorderWidth = 1F;
             this.Title.Font = new DevExpress.Drawing.DXFont("Arial", 14.25F);
-            this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
+            this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.Title.Name = "Title";
             this.Title.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 
             // GroupCaption1
             // 
-            this.GroupCaption1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(104)))), ((int)(((byte)(196)))));
+            this.GroupCaption1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.GroupCaption1.BorderColor = System.Drawing.Color.White;
             this.GroupCaption1.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.GroupCaption1.BorderWidth = 2F;
@@ -366,7 +366,7 @@
             // 
             // GroupData1
             // 
-            this.GroupData1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(104)))), ((int)(((byte)(196)))));
+            this.GroupData1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.GroupData1.BorderColor = System.Drawing.Color.White;
             this.GroupData1.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.GroupData1.BorderWidth = 2F;
@@ -378,7 +378,7 @@
             // 
             // GroupFooterBackground3
             // 
-            this.GroupFooterBackground3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(117)))), ((int)(((byte)(129)))));
+            this.GroupFooterBackground3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
             this.GroupFooterBackground3.BorderColor = System.Drawing.Color.White;
             this.GroupFooterBackground3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.GroupFooterBackground3.BorderWidth = 2F;
@@ -391,7 +391,7 @@
             // PageInfo
             // 
             this.PageInfo.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Bold);
-            this.PageInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
+            this.PageInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 

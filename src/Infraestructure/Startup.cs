@@ -2,6 +2,7 @@
 using Infraestructure.Cors;
 using Infraestructure.EventHandlers;
 using Infraestructure.Persistence;
+using Infraestructure.Services;
 using Infraestructure.Settings;
 using Infraestructure.Tenant;
 using Infrastructure.Middleware;
@@ -26,6 +27,7 @@ namespace Infraestructure
                     .AddJwt(configuration)
                     .AddEventHandlers()
                     .AddCorsPolicy();
+            services.AddScoped<ColaboradorService>();
             return services;
         }
 
