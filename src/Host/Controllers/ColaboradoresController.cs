@@ -18,6 +18,12 @@ namespace Host.Controllers
             _colaboradorService = colaboradorService;
         }
 
+        [HttpPost("create")]
+        public async Task<IActionResult> Create([FromBody] ColaboradorCreateDTO colaboradorDTO)
+        {
+            var result = await _colaboradorService.CreateColaboradorAsync(colaboradorDTO);
+            return Ok(result);
+        }
 
         [HttpGet("list")]
         public async Task<IActionResult> List([FromQuery] bool? esProfesor, [FromQuery] DateTime? fechaInicio, [FromQuery] DateTime? fechaFinal)
